@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 		@Id
 		@GeneratedValue
 		@Column(name = "ID")
-		long id;
+		Long id;
 		
 		@Column(name = "NAME")
 		String name;

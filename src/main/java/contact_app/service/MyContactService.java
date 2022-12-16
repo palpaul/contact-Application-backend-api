@@ -1,9 +1,7 @@
 package contact_app.service;
 
 import java.util.List;
-
 import contact_app.entity.ContactEntity;
-
 public interface MyContactService {
 	
 	public String saveContact(ContactEntity ctn);
@@ -11,4 +9,10 @@ public interface MyContactService {
 	public ContactEntity getContactById(long ctnid);
 	public String UpdateContact(ContactEntity ctn);
 	public String deleteContactById(long ctnid);
+	
+	//search method
+	List<ContactEntity> searchContacts(String query);
+	
+	List<ContactEntity> searchContactsnative(String query);
+	
 }

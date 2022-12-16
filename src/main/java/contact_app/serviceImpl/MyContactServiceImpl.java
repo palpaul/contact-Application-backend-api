@@ -20,8 +20,7 @@ public class MyContactServiceImpl implements MyContactService{
 	@Override
 	public String saveContact(ContactEntity ctn) {
 		ctn= mycntRepo.save(ctn); //insertion
-//here is is type of long that why taking 0L, if integer then we can take simply null
-		if(ctn.getId() !=0L) {
+		if(ctn.getId() !=null) {
 			return "contact Saved";
 		}else {
 		return "Contact failed to save";
@@ -41,15 +40,16 @@ public class MyContactServiceImpl implements MyContactService{
 			return findById.get();
 		}
 		else
-			{}
-		return null;
+			{
+			return null;
+			}
 	}
 
 	@Override
 	public String UpdateContact(ContactEntity ctn) {
 		// updation
 //		ContactEntity upt = mycntRepo.save(ctn);
-//		if(ctn.getId()!=0L) {
+//		if(ctn.getId()!=null) {
 //			return "Contact Updated Successfuly";
 //		}else {
 //			return "Contact updattion failed";
@@ -78,6 +78,22 @@ public class MyContactServiceImpl implements MyContactService{
 			return "Record not found";
 		}
 		
+	}
+	//search method
+	@Override
+	public List<ContactEntity> searchContacts(String query) {
+		// TODO Auto-generated method stub
+	 	 List<ContactEntity> searchcontcts =  mycntRepo.searchContact(query);
+		return searchcontcts;
+	 	  	
+	}
+	
+	//this method using search nativeQuery functionality
+	@Override
+	public List<ContactEntity> searchContactsnative(String query) {
+		// TODO Auto-generated method stub
+		List<ContactEntity> searchContactENtity =  mycntRepo.searchContactNativeSQL(query);
+		return searchContactENtity;
 	}
 
 	

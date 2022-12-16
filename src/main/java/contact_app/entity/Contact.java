@@ -23,7 +23,7 @@ public class Contact {
 	@Id
 	@GeneratedValue
 	@Column(name = "CONTACT_ID")
-	long contactId;
+	Long contactId;
 	
 	@Column(name = "CONTACT_NAME")
 	String contactName;
